@@ -1,6 +1,6 @@
 const { hasMany,belongsTo } = require('sequelize');
 const Sequelize = require('sequelize');
-const sql = new Sequelize('apuestas', 'root','Mirune.1812#265464', { host: 'localhost', dialect: 'mysql'});
+const sql = new Sequelize('apuestas', 'root','', { host: 'localhost', dialect: 'mysql'});
 
 const TbUsuario = sql.define('Usuarios',{
    id:         {type: Sequelize.INTEGER ,primaryKey: true,autoIncrement:true},
@@ -14,7 +14,6 @@ const TbPujas = sql.define('Apuestas',{
    id:          {type: Sequelize.INTEGER ,primaryKey: true,autoIncrement:true},
    product:     {type: Sequelize.STRING ,allowNull:false,validate:{notNull:{msg:'Falta ingresar el producto'},len:{args:[1]}}},
    amount:      {type: Sequelize.INTEGER,allowNull:false,validate:{notNull:{msg:'Falta ingresar la puja'},len:{args:[1]}}},
-   // name:        {type: Sequelize.STRING,allowNull:false,validate:{notNull:{msg:'Debe ingresar un Nombre'},len:{args:[3],msg:'El largo del nombre debe ser de al menos 3 digitos'}}},
 },{ timestramps: true });
 
 TbUsuario.hasMany(TbPujas)

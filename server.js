@@ -18,7 +18,6 @@ app
 .use(require('./routes/routes'))
 .use(require('./routes/post'))
 
-// .use(express.static(__dirname+"/public"))
 .use('/public', express.static("public"));
 
 

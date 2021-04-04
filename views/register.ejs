@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <%- include('templates/head1') %> 
+        <title>Registro</title>
+    </head>
+
+    <body class="p-4 bg-dark m-5">
+    <div class="container p-4 my-n2">
+        <div class="row p-3 mx-auto" style="place-content:center;width: fit-content;background-color: #e2e461;">
+            <div class="form-row px-4 py-2 m-2">
+                <form id="form-register" action="/datosregistro" method="POST" class="col s6"> <!-- datosregistro { nickname,name,lastname,email, password} -->
+                    <div class="form-group p-3">
+                        <div class="div mb-3"> <h4>¡Registrese para participar!</h4></div>
+                    </div>
+                    
+                    <div class="row py-1">
+                        <div class="input-field col s12"> <input required type="text" name="name" class="form-control validate" id="inputname" placeholder="Nombre y Apellido"></div>
+                    </div>
+                    <div class="row py-1">
+                        <div class="input-field col s12"><input required type="email" name="email" class="form-control validate" id="inputemail" placeholder="Email"></div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <br>
+                            <input required type="password" name="password" class="form-control validated" id="inputPassworda" placeholder="Contraseña">                        
+                            <input required type="password" name="passwordb" class="form-control validated my-1" id="inputPasswordb" placeholder="Confirme la Contraseña">
+                        </div>
+                    </div>
+                    <div class="row" style="text-align:-webkit-center">
+                        <div class="input-field col s12 mt-4"> <button type="submit" class="btn btn-info" id="registrarse" disabled>Completar el Registro</button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript" src="../functions.js"></script>
+    </div>
+        <script>
+              $(document).ready(function () {
+
+                
+                $('#inputPasswordb').on("change", function (){
+                    
+                    
+                });
+                    let elea = $('#inputPassworda').val();
+                    let eleb = $('#inputPasswordb').val();
+                    if(elea==eleb){$('#registrarse').removeAttr('disabled');}
+              });
+
+        </script>      
+    </body>
+</html>

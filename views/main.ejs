@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="es">
+   <head>
+      <%- include('templates/head1') %>
+
+
+         <title> Index testing </title>
+   </head>
+   <body class="bg-dark">
+      <style>  img{width:100%;display: block;};</style>
+      <div class="container-fluid">
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">   <!-- nav bar-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Bid Now! <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-dark" href="#"><%= user.fullname  %> </a>
+                </li>
+              </ul>
+            </div>
+               <a class="nav-link" href="/logout">Log Out</a>
+         </nav>
+         <div class="container-fluid">
+            <div class="row" style="text-align: -webkit-center;" >
+               <div class="col-4 text-info px-4 pt-5">
+                  <div class="div bg-secondary">
+                     <div class="div bg-light"><img src="/public/img/bluediamond.jpg">
+                        <div class="div">Diamante Azul        </div>
+                     </div>
+                     <div class="div pt-3 pb-1">
+                        <form action="/newbid" method="post">
+                           <input type="hidden" name="product" value="Diamante"> 
+                           <div class="input-group mb-3 px-4">
+                              <div class="input-group-prepend">
+                                 <span class="input-group-text">$</span>
+                              </div>
+                              <input id="subas1" type="number" step="1.0" name="amount" class="form-control" aria-label="Amount (to the nearest dollar)">
+                              <button id="botn1" type="submit" class="btn btn-light btn-sm ml-3">Bid!</button>
+                           <!-- eliminando un /div mantiene ordenado en el screen -->
+                        </form>
+                     </div>
+                  </div>
+               </div>   </div> <!-- no borrar este div -->
+               <div class="col-4 text-info px-4 pt-5">
+                  <div class="div bg-secondary">
+                     <div class="div bg-light"><img src="/public/img/crownpaloma.jpg">
+                        <div class="div">Isla Privada         </div>
+                     </div><div class="div pt-3 pb-1">
+                        <form action="/newbid" method="post">
+                           <input type="hidden" name="product" value="Isla"    > 
+                           <div class="input-group mb-3 px-4"><div class="input-group-prepend">
+                              <span class="input-group-text">$</span>
+                           </div>
+                           <input id="subas2" type="number" step="1.0" name="amount" class="form-control" aria-label="Amount (to the nearest dollar)">
+                           <button id="botn2" type="submit" class="btn btn-light btn-sm ml-3">Bid!</button>
+                        </form>
+                     </div>
+                  </div>
+               </div>   </div> <!-- no borrar este div -->
+               <div class="col-4 text-info px-4 pt-5">
+                  <div class="div bg-secondary">
+                     <div class="div bg-light"><img src="/public/img/mansion-cr.jpg" >
+                        <div class="div">Mansion Mediterranea </div>
+                     </div>
+                     <div class="div pt-3 pb-1">
+                        <form id="formp" action="" method="post">
+                           <input type="hidden" name="product" value="Mansion" > 
+                           <div class="input-group mb-3 px-4"><div class="input-group-prepend">
+                              <span class="input-group-text">$</span>
+                           </div>
+                           <input id="subas3" type="number" step="1.0" name="amount" class="form-control" aria-label="Amount (to the nearest dollar)">
+                           <button id="botn3" type="submit" class="btn btn-light btn-sm ml-3">Bid!</button>
+                        </form>
+                     </div>
+                  </div>
+               </div>   </div>  <!-- no borrar este div -->
+      <div class="container-fluid pb-3">
+            <div class="row" style="text-align: -webkit-center;" >
+               <div class="col-4 p-4 pt-5">
+                  <div class="div bg-secondary">
+                     <div class="p-2" >Current Bind:</div>
+                     <div class="px-3">
+                        <div class="list-group">
+                           <a href="#" class="list-group-item list-group-item-action"><%=diamante1 %></a>
+                           <a href="#" class="list-group-item list-group-item-action"><%=diamante2 %></a>
+                           <a href="#" class="list-group-item list-group-item-action"><%=diamante3 %></a>
+                        </div>
+                     </div>
+                     <div class="div p-2 px-4 bg-secondary">
+                        <input id="bus1" type="text" step="1.0" class="form-control" placeholder="Search">
+                     </div>
+                  </div>
+               </div>
+               <div class="col-4 p-4 pt-5">
+                  <div class="div bg-secondary">
+                     <div class="p-2" >Current Bind:</div>
+                     <div class="px-3">
+                        <div class="list-group">
+                           <a href="#" class="list-group-item list-group-item-action"><%=usuarios[max3islas[0].UsuarioId-1].fullname %> : $<%=max3islas[0].amount %></a>
+                           <a href="#" class="list-group-item list-group-item-action"><%=usuarios[max3islas[1].UsuarioId-1].fullname %> : $<%=max3islas[1].amount %></a>
+                           <a href="#" class="list-group-item list-group-item-action"><%=usuarios[max3islas[2].UsuarioId-1].fullname %> : $<%=max3islas[2].amount %></a>
+                        </div>
+                     </div>
+                     <div class="div p-2 px-4 bg-secondary">
+                        <input id="bus2" type="text" step="1.0" class="form-control" placeholder="Search">
+                     </div>
+                  </div>
+               </div>
+               <div class="col-4 p-4 pt-5">
+                  <div class="div bg-secondary">
+                     <div class=" p-2" >Current Bind:</div>
+                     <div class="px-3">
+                        <div class="list-group">
+                           <a href="#" class="list-group-item list-group-item-action"><%=usuarios[max3mansi[0].UsuarioId-1].fullname %> : $<%=max3mansi[0].amount %></a>
+                           <a href="#" class="list-group-item list-group-item-action"><%=usuarios[max3mansi[1].UsuarioId-1].fullname %> : $<%=max3mansi[1].amount %></a>
+                           <a href="#" class="list-group-item list-group-item-action"><%=usuarios[max3mansi[2].UsuarioId-1].fullname %> : $<%=max3mansi[2].amount %></a>
+                        </div>
+                     </div>
+                     <div class="div p-2 px-4 bg-secondary">
+                        <input id="bus3" type="text" step="1.0" class="form-control" placeholder="Search">
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-8"></div>
+               <div class="col-1"></div>
+               <div class="col-2">
+                  <form id="form-enviar" action="/result" method="GET">
+                  <button id="botnendbind" class="btn btn-light btn-block"> End Bind </button>
+                  </form>
+               </div>
+            </div>
+      </div>   </div>    <!-- no borrar  tampoco este div -->
+   <script type="text/javascript">
+
+      $(document).ready(function () {
+
+         $('#botnendbind').on('click',function(ev){ 
+            ev.preventDefault();
+            if(<%=max3diamn.length%> > 0 && <%=max3islas.length%> > 0 && <%=max3mansi.length%> > 0){
+               $("#form-enviar").submit();
+            } else {
+               alert('No se puede finalizar la puja.  Un producto no ha sido pujado',ev.preventDefault());
+            }
+         });
+
+      });
+   </script>
+   </body>
+</html>

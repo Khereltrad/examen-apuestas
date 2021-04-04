@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+   <head>
+      <%- include('templates/head1') %>
+
+
+         <title> Index testing </title>
+   </head>
+   <body class="bg-dark">
+      <style>  img{width:100%;display: block;};</style>
+      <div class="container-fluid">
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">   <!-- nav bar-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/main"> Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-dark" href="#"><%= user.fullname  %> </a>
+                </li>
+              </ul>
+            </div>
+               <a class="nav-link" href="/logout">Log Out</a>
+         </nav>
+      </div>
+      <div class="container-fluid bg-dark text-light p-4">
+         <div class="col p-2 px-4">
+            <h1> Puja Finalizada </h1>
+            <h4> Las Pujas Mas Altas por Producto :</h4>
+         </div>
+      </div>
+      <div class="container-fluid">
+         <div class="row my-1" style="place-content: center;">
+            <div class="col-5 bg-secondary p-1">
+               <div class="row">
+                  <div class="col-8">
+                     <img src="/public/img/bluediamond.jpg">
+                  </div>
+                  <div class="col-4 p-3">
+                     <h4><%=usuarios[maxdiamons.UsuarioId-1].fullname  %></h4> 
+                     <br>
+                     <h5>$<%= maxdiamons.amount %></h5> 
+                  </div>
+               </div>
+            </div>
+            <div class="col-1 bg-dark"></div>
+            <div class="col-5 bg-secondary p-1">
+               <div class="row">
+                  <div class="col-8">
+                     <img src="/public/img/crownpaloma.jpg">
+                  </div>
+                  <div class="col-4 p-3">
+                     <%= usuarios[maxislas.UsuarioId-1].fullname %> 
+                     <br>
+                     <%= maxislas.amount  %> 
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="row mt-5" style="place-content: center;">
+            <div class="col-5 bg-secondary p-1">
+               <div class="row">
+                  <div class="col-8  p-3">
+                     <img src="/public/img/mansion-cr.jpg" >
+                  </div>
+                  <div class="col-4">
+                    <%= usuarios[maxmansions.UsuarioId-1].fullname %>     
+                     <br>
+                     <%= maxmansions.amount%> 
+                      
+                  </div>
+               </div>
+            </div>
+            <div class="col-1 bg-dark"></div>
+            <div class="col-5 bg-dark p-1">
+               <div class="row">
+                  <div class="col-8">
+                     
+                  </div>
+                  <div class="col-4">
+                     
+                     <br>
+                     
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="container-fluid py-5">
+         <div class="row">
+            <div class="col-8"></div>
+            <div class="col-1"></div>
+            <div class="col-2">
+               <form action="/main" method="GET">
+               <button type="submit" id="botnendbind" class="btn btn-light btn-block"> Star Bid </button>
+               </form>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

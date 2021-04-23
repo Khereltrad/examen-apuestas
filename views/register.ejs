@@ -29,24 +29,52 @@
                         </div>
                     </div>
                     <div class="row" style="text-align:-webkit-center">
-                        <div class="input-field col s12 mt-4"> <button type="submit" class="btn btn-info" id="registrarse" disabled>Completar el Registro</button></div>
+                        <div class="input-field col s12 mt-4"> <button type="submit" class="btn btn-info" id="registrarse">Completar el Registro</button></div>
                     </div>
                 </form>
             </div>
         </div>
-        <script type="text/javascript" src="../functions.js"></script>
+        <!-- <script type="text/javascript" src="../functions.js"></script> -->
     </div>
         <script>
               $(document).ready(function () {
 
                 
-                $('#inputPasswordb').on("change", function (){
-                    
-                    
+                function showError(sec,msg){   
+                    $('.alert').html(`<span>${msg}</span>`);
+                };
+                
+                let expregnom  =/^([A-Z]{1}[a-z\-\']+[\s]{1}[A-Z]{1}[a-z\-\']*)/;
+
+                $('#inputname').on  ('change',function() {  let Name  =$('#inputname').val().trim();
+                    if(expregnom.test(Name)==false){$(this).addClass('text-danger');$(this).removeClass('is-valid');showError(this,'Ingrese el nombre iniciando con mayuscula y sin números')}
+                    else {$('.alert').html(``);$(this).removeClass('text-danger');$(this).addClass('is-valid');}
                 });
-                    let elea = $('#inputPassworda').val();
-                    let eleb = $('#inputPasswordb').val();
-                    if(elea==eleb){$('#registrarse').removeAttr('disabled');}
+
+                $('#inputemail').on ('change',function() {
+                    var Email =$('#inputemail').val().trim();
+                    if(!Email.match("^\\S+@\\S+\\.\\S+$")){$(this).addClass('text-danger');$(this).removeClass('is-valid');showError('#inputemail','El e-mail presente está mal escrito')}
+                    else{$('.alert').html(``);$(this).removeClass('text-danger');$(this).addClass('is-valid');}
+                });
+
+                $('#inputPasswordb').on("change", function (){
+                    let elea = $('#inputPassworda').val().trim(); let eleb = $('#inputPasswordb').val().trim();
+                    if(elea!=eleb){$('#inputPassworda').removeClass('is-valid');$('#inputPasswordb').removeClass('is-valid');$('#inputPassworda').val('');$('#inputPasswordb').val('')}
+                    else{ $('#inputPassworda').addClass('is-valid');  $('#inputPasswordb').addClass('is-valid');}
+                });
+
+                $('#registrarse').on("click", function (ev){
+                    let okname  = $('#inputname').hasClass('is-valid');
+                    let okmail  = $('#inputemail').hasClass('is-valid');
+
+                        if(okname ==true){
+                            
+                            if (okmail ==false) { event.preventDefault();return alert('Hay campos con datos vacios o errados en el e-mail para el envío');};
+
+                        } else{event.preventDefault();return alert('Hay campos con datos vacios o errados en el nombre para el envío');}
+
+                });               
+                
               });
 
         </script>      

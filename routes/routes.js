@@ -1,5 +1,4 @@
-const { Router } = require('express');
-const router = Router();
+const { Router } = require('express'); const router = Router();
 const {checkLogin,checkAdmin} = require('../js/middlewares/middles');
 const { TbUsuario,TbPujas} = require('../data/userdb');
 // , TbPreguntas, TbResultado
@@ -15,9 +14,7 @@ router
    const max3islas   = await TbPujas.findAll({where:{product:'Isla'}, order:[['amount','desc']],limit:3});
    const max3diamn   = await TbPujas.findAll({where:{product:'Diamante'}, order:[['amount','desc']],limit:3});
    
-   let diamante1 = ""; let diamante2 = ""; let diamante3 = "";
-   let mansion1 = ""; let mansion2 = ""; let mansion3 = "";
-   let Isla1 = ""; let Isla2 = ""; let Isla3 = "";
+   let diamante1 = ""; let diamante2 = ""; let diamante3 = ""; let mansion1 = ""; let mansion2 = ""; let mansion3 = ""; let Isla1 = ""; let Isla2 = ""; let Isla3 = "";
 
    if (max3diamn.length > 0) {
        diamante1 = `${usuarios[max3diamn[0].UsuarioId-1].fullname} : $${max3diamn[0].amount}`;
@@ -49,7 +46,6 @@ router
       }
    }
 
-
    res.render('main.ejs',{usuarios,max3mansi,max3islas,max3diamn,diamante1, diamante2, diamante3,isla1,isla2,isla3,mansion1,mansion2,mansion3});
 })
 .get('/result',checkLogin,  async (req, res) => { 
@@ -61,10 +57,7 @@ router
    res.render('result.ejs',{usuarios,maxmansions,maxislas,maxdiamons});
 })
 
-
 //* ruta de testeo
 router.get('/testeo', async (req, res) => { console.log('***** Ingresa a testear'); const user= req.session.user; const preguntas = await TbPreguntas.findAll(); res.render('testeo.ejs',{preguntas});});
 
 module.exports = router;
-
-//1:31 mensaje alerta a 1:33
